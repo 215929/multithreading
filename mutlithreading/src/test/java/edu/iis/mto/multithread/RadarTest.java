@@ -1,19 +1,17 @@
 package edu.iis.mto.multithread;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-
 import org.junit.jupiter.api.Test;
 
-public class RadarTest {
+import static org.mockito.Mockito.*;
+
+class RadarTest {
 
     @Test
-    public void launchPatriotOnceWhenNoticesAScudMissle() {
+    void launchPatriotOnceWhenNoticesAScudMissle() {
         PatriotBattery batteryMock = mock(PatriotBattery.class);
-        Radar radar = new Radar(batteryMock);
+        BetterRadar radar = new BetterRadar(batteryMock, 1);
         Scud enemyMissle = new Scud();
         radar.notice(enemyMissle);
-        verify(batteryMock).launchPatriot(enemyMissle);
+        verify(batteryMock, timeout(100).times(1)).launchPatriot(enemyMissle);
     }
-
 }
