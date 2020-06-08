@@ -9,6 +9,7 @@ public class BetterRadar {
     public BetterRadar(PatriotBattery battery, int numberOfRockets) {
         this.battery = battery;
         this.launcher = new PatriotLauncher();
+        this.numberOfRockets = numberOfRockets;
     }
 
     public void notice(Scud enemyMissle) {
