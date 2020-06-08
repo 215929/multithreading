@@ -4,8 +4,9 @@ public class BetterRadar {
 
     private PatriotBattery battery;
     private PatriotLauncher launcher;
+    private int numberOfRockets;
 
-    public BetterRadar(PatriotBattery battery) {
+    public BetterRadar(PatriotBattery battery, int numberOfRockets) {
         this.battery = battery;
         this.launcher = new PatriotLauncher();
     }
@@ -15,6 +16,6 @@ public class BetterRadar {
     }
 
     private void launchPatriot(Scud enemyMissle) {
-        launcher.launch(battery, enemyMissle);
+        launcher.launch(battery, enemyMissle, numberOfRockets);
     }
 }
